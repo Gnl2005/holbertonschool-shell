@@ -1,2 +1,6 @@
 #!/bin/bash
-chown vincent hello
+# Change owner to vincent only if the file hello is owned by guillaume
+
+if [ "$(stat -c %U hello)" = "guillaume" ]; then
+    chown vincent hello
+fi
